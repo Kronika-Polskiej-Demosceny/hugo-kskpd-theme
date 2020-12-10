@@ -1,0 +1,34 @@
+{{ with .Site.Params.navigation }}
+<nav class="navbar navbar-expand-lg fixed-top custom-nav sticky" id="navbar">
+    <div class="container-fluid">
+        <!-- LOGO -->
+        <a class="logo navbar-brand mr-5" href="index.html">
+            <img src="images/kpd-logo-dark.png" alt="" class="img-fluid logo-light"> 
+            <img src="images/kpd-logo-lite.png" alt="" class="img-fluid logo-dark">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="mdi mdi-menu"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto navbar-center" id="mySidenav">
+				{{ range .menu }}
+                    <li class="nav-item active">
+                            <a href="{{ .url }}" class="nav-link">{{ .name }}</a>
+                    </li>
+                {{ end }}
+                {{ range .Site.RegularPages }}
+                <li class="nav-item active">
+                        <a href="{{ .RelPermalink }}" class="nav-link">{{ .Title }}</a>
+                </li>
+                {{ end }}
+            </ul>
+            <button class="btn btn-outline-white navbar-btn">{{ .button.name }}</button>
+            <ul class="navbar-nav navbar-right">
+                {{ range $.Site.Home.AllTranslations }}
+                    <li class="nav-item active"><a href="{{ .Permalink }}"><img width="32" src="images/{{ .Language }}.png" alt="{{ .Language.LanguageName }}"/></a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</nav>
+{{ end }}

@@ -1,0 +1,15 @@
+name = "kskpd"
+license = "CC0"
+licenselink = "https://github.com/unjello/hugo-kskpd-theme/blob/master/LICENSE"
+description = "Homepage theme for Komitet Społeczny Kronika Polskiej Demosceny (Social Committee Polish Demoscene Chronicles)."
+homepage = "https://kskpd.pl/"
+tags = ["hugo", "demoscene", "art", "digital culture", "culture", "non-profit", "nonprofit"]
+features = []
+min_version = "0.41.0"
+
+[author]
+  name = "Andrzej Lichnerowicz"
+  homepage = "https://andrzej.lichnerowicz.pl"
+
+
+
