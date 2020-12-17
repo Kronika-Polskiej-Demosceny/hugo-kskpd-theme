@@ -5,28 +5,33 @@
     "use strict";
     var page_offset
     $(function () {
+        var deviceAgent = navigator.userAgent.toLowerCase();
+
+        if (deviceAgent.match(/(iphone|ipod|ipad)/)) {
+            $('.iparallax').removeClass('parallax');
+        }
+
         page_offset = window.pageYOffset
         window.onscroll = function () {
             var t = window.pageYOffset;
             (document.getElementById("navbar").style.top = page_offset > t ? "0" : "-480px"), (page_offset = t);
         }
         let loader = $(".loader"),
-        window_height = $(window).height(),
-        window_width = $(window).width()
-        
+            window_height = $(window).height(),
+            window_width = $(window).width()
+
         if (!!loader) {
+            loader.css({
+                top: window_height / 2 - 2.5,
+                left: window_width / 2 - 200
+            })
 
-        loader.css({
-            top: window_height / 2 - 2.5,
-            left: window_width / 2 - 200
-        })
-
-        loader.animate({ left: 0, width: "100%" }),
-            loader.animate({ top: "0", height: "100vh" }),
-            setTimeout(() => {
-                $(".loader-wrapper").fadeOut("fast")
-                loader.fadeOut("fast")
-            }, 900)
+            loader.animate({ left: 0, width: "100%" }),
+                loader.animate({ top: "0", height: "100vh" }),
+                setTimeout(() => {
+                    $(".loader-wrapper").fadeOut("fast")
+                    loader.fadeOut("fast")
+                }, 900)
         }
 
 

@@ -1,14 +1,17 @@
-<section class="home-bg" id="home">
+<section class="home-bg iparallax parallax" id="home">
     <div class="bg-overlay"></div>
     <div class="home-table">
         <div class="home-table-center">
             <div class="container">
                 <div class="row vertical-content">
-                    <div class="col-lg-6">
-                        <div class="mt-3">
+                    <div class="col-xl-8">
+                        <div>
                             <div class="small_title">
                                 <div class="home_line"></div> <p class="mb-0">{{ .Site.Params.home.tagline1 }}</p>
                             </div>
+                            <picture class="img-fluid d-block rounded w-50 header_logo">
+                                <img src="images/logo.png" class="img-fluid mx-auto d-block rounded w-80"/>
+                            </picture>
                             <h1 class="header_title mx-auto text-white mt-4 mb-0">{{ .Site.Params.home.title }}</h1>
                             <p class="header_subtitle pt-4 mb-0 pb-2 ">{{ .Site.Params.home.tagline2 }}</p>
                             {{ with .Site.Params.home.button }}
@@ -18,7 +21,7 @@
                             {{ end }}                               
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         {{ with .Site.Params.home.video }}
                         <div class="side_video text-center mt-3">
                             <a href="{{ .url }}" class="learn_more video_home text-center text-custom"><i class="mdi mdi-play"></i></a>

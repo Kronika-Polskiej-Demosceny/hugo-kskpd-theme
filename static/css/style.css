@@ -410,11 +410,24 @@ button:focus {
     color: #000; }
 
 .home-bg {
-  background-image: url("../images/graffiti.webp");
+  background-image: url("../images/graffiti.jpg");
+
+  padding: 180px 0 180px;
+
+}
+
+.iparallax {
   position: relative;
-  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  padding: 180px 0 180px; }
+}
+.parallax {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}
 
 .home-table {
   display: table;
@@ -453,9 +466,13 @@ button:focus {
     font-weight: bolder;}
     .home-table .home-table-center .header_subtitle {
       line-height: 1.8;
-      max-width: 450px;
+      max-width: 550px;
       color: var(--color-2-transparent) !important; 
       font-weight: bolder;
+    }
+    .home-table .home-table-center .header_logo {
+      transform: translateX(-19%);
+      padding-bottom: 1em;
     }
     .home-table .home-table-center .learn_more i {
       background: #fff;
