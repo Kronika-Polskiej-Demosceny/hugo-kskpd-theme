@@ -6,8 +6,23 @@
 <title>{{ .Title }}</title>
 {{ with .Site.LanguageCode }}<meta http-equiv="content-language" content="{{ . }}" />{{ end }}
 {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-{{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+{{ with .Site.Params.description }}
+<meta name="description" content="{{ . }}">
+<meta property="og:description" content="{{ . }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"/>
+{{ end }}
 {{ with .Site.Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
+<meta property="og:title" content="{{ .Title }}">
+{{ with .Site.Params.thumbnail }}<meta property="og:image" content="{{.}}">{{end}}
+{{ with .Site.Params.url }}<meta property="og:url" content="{{.}}">{{end}}
+<meta property="og:site_name" content="{{ .Title }}">
+<meta property="og:image:alt" content="{{ .Title }}">
+<meta name="twitter:image:alt" content="{{ .Title }}">
+
+{{ with .Site.Params.fb_app_id }}<meta property="fb:app_id" content="{{.}}" />{{end}}
+{{ with .Site.Params.twitter_id }}<meta name="twitter:site" content="{{.}}">{{end}}
+
 <link rel="shortcut icon" href="images/favicon.ico">
 <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="css/magnific-popup.css">
