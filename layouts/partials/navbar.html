@@ -11,7 +11,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto navbar-center" id="mySidenav">
-				{{ range .menu }}
+            {{ with .menu }}
+				{{ range . }}
                     <li class="nav-item active">
                             <a href="{{ .url }}" class="nav-link">{{ .name }}</a>
                     </li>
@@ -21,11 +22,14 @@
                         <a href="{{ .RelPermalink }}" class="nav-link">{{ .Title }}</a>
                 </li>
                 {{ end }}
+            {{ end }}
             </ul>
-            <button class="btn btn-outline-white navbar-btn">{{ .button.name }}</button>
-            <ul class="navbar-nav navbar-right">
+            {{ with .button }}
+            <button class="btn btn-outline-white navbar-btn">{{ .name }}</button>
+            {{ end }}
+            <ul class="navbar-nav navbar-right language-chooser">
                 {{ range $.Site.Home.AllTranslations }}
-                    <li class="nav-item active"><a href="{{ .Permalink }}"><img width="32" src="images/{{ .Language }}.png" alt="{{ .Language.LanguageName }}"/></a></li>
+                    <li class="nav-item active"><a href="{{ .Permalink }}"><img src="images/{{ .Language }}.svg">{{ .Language.LanguageName }}</a></li>
                 {{ end }}
             </ul>
         </div>
