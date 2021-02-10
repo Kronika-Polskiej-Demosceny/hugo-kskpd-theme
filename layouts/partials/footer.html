@@ -10,15 +10,17 @@
             </div>
             <div class="col-lg-2">
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <ul class="list-inline fot_social mt-4">
+                    {{ with .Site.Params.socialmedia.email }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="far fa-envelope"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.youtube }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-youtube"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.instagram }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-instagram"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.twitter }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-twitter"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.linkedin }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-linkedin-in"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.facebook }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-facebook-f"></i></a></li>{{ end }}
+                    {{ with .Site.Params.socialmedia.tiktok }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-tiktok"></i></a></li>{{ end }}
                     {{ with .Site.Params.socialmedia.github }}<li class="list-inline-item"><a href="{{ . }}" class="social-icon"><i class="fab fa-github"></i></a></li>{{ end }}
                 </ul>
             </div>
