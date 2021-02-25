@@ -1,37 +1,44 @@
 {{ with .Site.Params.navigation }}
 <nav class="navbar navbar-expand-lg fixed-top custom-nav sticky" id="navbar">
     <div class="container-fluid">
-        <!-- LOGO -->
-        <a class="logo navbar-brand mr-5" href="index.html">
-            <img src="images/kpd-logo-dark.png" alt="" class="img-fluid logo-light"> 
-            <img src="images/kpd-logo-lite.png" alt="" class="img-fluid logo-dark">
+        <a class="logo navbar-brand mr-5" href="{{ $.Site.Home.Permalink }}">
+            <picture class="img-fluid logo-light">
+                <source srcset="images/logo.webp" type="image/webp"/>
+                <source srcset="images/logo.png" type="image/png"/>
+                <img src="images/logo.png" class="img-fluid logo-light"/>
+            </picture>
+            <picture class="img-fluid logo-dark">
+                <source srcset="images/logo-dark.webp" type="image/webp"/>
+                <source srcset="images/logo-dark.png" type="image/png"/>
+                <img src="images/logo-dark.png" class="img-fluid logo-dark"/>
+            </picture>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <i class="mdi mdi-menu"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+ 
             <ul class="navbar-nav mr-auto navbar-center" id="mySidenav">
-            {{ with .menu }}
-				{{ range . }}
+                {{ with .menu }}   				
+                {{ range . }}
+                    {{ $page := $.GetPage .url }}
                     <li class="nav-item active">
-                            <a href="{{ .url }}" class="nav-link">{{ .name }}</a>
+                        <a href="{{ $page.Permalink }}" class="nav-link">{{ .name }}</a>
                     </li>
                 {{ end }}
-                {{ range .Site.RegularPages }}
-                <li class="nav-item active">
-                        <a href="{{ .RelPermalink }}" class="nav-link">{{ .Title }}</a>
-                </li>
                 {{ end }}
-            {{ end }}
             </ul>
+            
             {{ with .button }}
             <button class="btn btn-outline-white navbar-btn">{{ .name }}</button>
             {{ end }}
+            {{ if $.IsTranslated }}
             <ul class="navbar-nav navbar-right language-chooser">
-                {{ range $.Site.Home.AllTranslations }}
-                    <li class="nav-item active"><a href="{{ .Permalink }}"><img src="images/{{ .Language }}.svg">{{ .Language.LanguageName }}</a></li>
+                {{ range $.Translations }}
+                <li class="nav-item active"><a href="{{ .Permalink }}"><img src="images/{{ .Language }}.svg">{{ .Language.LanguageName }}</a></li>
                 {{ end }}
             </ul>
+            {{ end }}
         </div>
     </div>
 </nav>
